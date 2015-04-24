@@ -1,0 +1,372 @@
+{
+    "message.size": "{{fieldName}} must be between {{min}} and {{max}} characters.",
+    "_forms": "Care Group or Care Area Forms",
+    "_tabGeneral": "Start General Parameters",
+    "careItem.name": "Care Area or Care Group",
+    "careItem.careGroup.name": "Care Group:",
+    "careItem.careGroup.Categories": "Care Group Category:",
+    "careItem.careArea.name": "Care Area:",
+    "careItem.careAreaType": "Care Area Type:",
+    "careItem.deviceType": "Supported Devices:",
+    "careItem.subtab.infusionrequests": "Infusion Requests",
+    "careItem.subtab.infusionLineSettings": "Infusion Line Settings",
+    "careItem.medCategories": "Infusion Categories Displayed on Pump:",
+    "careItem.careAreaTypesId": "Care Area:",
+    "careItem.facilityId": "Facility",
+    "careItem.careAreaPasscode": "Care Area Entry:",
+    "careItem.inactivityAlert": "Inactivity Alert:",
+    "careItem.secondReviewReq": "Second Clinician Review Requested:",
+    "careItem.reqOprIdent": "Clinician ID Requested:",
+    "careItem.promptPatientIdent": "Patient ID Requested:",
+    "careItem.allowKvoChange": "Adjustable by Clinician:",
+    "careItem.subsection.speakerVolume": "Speaker Volume",
+    "careItem.speakerVolDefault": "Default Volume:",
+    "careItem.allowSpkrVolChg": "Adjustable by Clinician:",
+    "careItem.subsection.screenBrightness": "Screen Brightness",
+    "careItem.scrBrightDflt": "Default Brightness:",
+    "careItem.autoScrBright": "Auto Adjust:",
+    "careItem.autoLockUI": "Screen Lock",
+    "careItem.promptNoncomplaintMed": "Basic Mode Medication Name Requested:",
+    "careItem.subtab.callbackAlertReasons": "Callback Alert Reason List:",
+    "careItem.req2ndWtBsaInp": "Double Confirmation Of Weight/BSA Required:",
+    "careItem.subtab.patientSettings": "Patient Settings (UK)",
+    "careItem.subsection.weightLimits": "Weight Limits",
+    "careItem.wtHardLowLim": "Hard Low (kg):",
+    "careItem.wtSoftLowLim": "Soft Low (kg):",
+    "careItem.wtSoftHighLim": "Soft High (kg):",
+    "careItem.wtHardHighLim": "Hard High (kg):",
+    "careItem.subsection.bsaLimits": "BSA Limits",
+    "careItem.bsaHardLowLim": "Hard Low (m2):",
+    "careItem.bsaSoftLowLim": "Soft Low (m2):",
+    "careItem.bsaSoftHighLim": "Soft High (m2):",
+    "careItem.bsaHardHighLim": "Hard High (m2):",
+    "careItem.occlSensitivity": "Default Sensitivity:",
+    "careItem.allowOcclRstartChg": "Adjustable by Clinician:",
+    "careItem.subsection.lvpOcclusions": "LVP Occlusions",
+    "careItem.occlRestart": "Occlusion Auto-Restarts:",
+    "careItem.allowDosChg": "Adjustable by Clinician:",
+    "careItem.subsection.rateLimits": "Rate Limits",
+    "careItem.rateHardHighLim": "Rate Hard High (mL/hr):",
+    "careItem.rateSoftHighLim": "Rate Soft High (mL/hr):",
+    "careItem.subsection.vtbiLimits": "VTBI Limits",
+    "careItem.vtbiHardHighLim": "VTBI Hard High (mL):",
+    "careItem.vtbiSoftHighLim": "VTBI Soft High (mL):",
+    "careItem.kvoValue": "Default KVO Rate (mL/hr):",
+    "careItem.subsection.kvoValue": "KVO Value",
+    "careItem.subsection.airIfuLim": "Air in Line Limit:",
+    "careItem.airIfuLim": "Default Sensitivity (microliters):",
+    "careItem.allowAirLimChg": "Adjustable by Clinician:",
+    "careItem.subtab.hardwareSettings": "Hardware Settings",
+    "_comment": "End of Settings for Device for Care Item",
+    "careItem.alerts": "List Order Displayed on Pump",
+
+    "mml": {
+        "error": "Error! UK",
+        "doneAdding": "Done Adding UK",
+        "addMedications": "Add Medications UK",
+        "categorizedView": "Categorized View UK",
+        "save": "Save UK",
+        "cancel": "Cancel UK",
+        "modify": "Modify UK",
+        "search": "Search UK",
+        "searchMasterMedicationList": "Search Master Medication List UK",
+        "searchCategory": "Search Category UK",
+        "uncategorizedList": "Uncategorized List UK",
+        "successfulAddedMedSingleBeginning": "1 Medication was UK",
+        "successfulAddedMedMultiBeginning": " Medications were UK",
+        "successfulAddedMedFinish": " added to your Master Medications List successfully! UK",
+        "successfulAddedCatFinish": " added to a Category successfully! UK",
+        "successfulAddedCatSingle": "{{medicationName}} was added to {{categoryName}} successfully! UK",
+        "successfulAddedCatMulti": "{{medicationQty}} Medications were added to {{categoryName}} successfully! UK",
+        "errorInError": "Something in the error went wrong UK",
+        "cannotConnectToServer": "Cannot connect to server UK",
+        "formulary": {
+            "standardFormularyMedications": "Standard Formulary Medications UK",
+            "searchStandardFormulary": "Search Standard Formulary UK",
+            "selectAll": "Select All UK",
+            "includeAliases": "Include Aliases UK",
+            "addSelected": "Add Selected UK",
+            "createCustomMedication": "Create Custom Medication UK",
+            "genericName": "Generic Name UK",
+            "required": "Required UK",
+            "nameOnPump": "Name On Pump UK",
+            "altName1": "Alt. Name 1 UK",
+            "altName2": "Alt. Name 2 UK",
+            "highAlert": "High Alert UK",
+            "yes": "Yes UK",
+            "no": "No UK",
+            "saveMedication": "Save Medication UK",
+            "cancel": "Cancel UK",
+            "cancelConfirm": "Are you sure you would like to cancel? Any changes made to the medication will be lost. UK"
+        },
+        "medicationCategories": {
+            "categoriesList": "Categories List UK",
+            "addCategory": "Add Category UK",
+            "uncategorizedList": "Uncategorized List UK",
+            "allMedications": "All Medications UK",
+            "search": "Search UK",
+            "toolTip": "Change Category order which appears on pump. UK"
+        },
+        "medicationsTable": {
+            "genericName": "Generic\u00A0Name\u00A0UK",
+            "nameOnPump": "Name\u00A0on\u00A0Pump\u00A0UK",
+            "altName1": "Alt.\u00A0Name\u00A01\u00A0UK",
+            "altName2": "Alt.\u00A0Name\u00A02\u00A0UK",
+            "categories": "Categories\u00A0UK",
+            "highAlert": "High\u00A0Alert\u00A0UK",
+            "custom": "Custom\u00A0UK",
+            "noCurrentMedications": "There are currently no medications assigned to this Category. Click Modify to start. UK"
+        }
+    },
+
+    "global": {
+        "title": "hsm_dalmgr_app",
+        "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+        "menu": {
+            "home": "Home",
+            "entities": {
+                "main": "Entities"
+            },
+            "account": {
+                "main": "Account",
+                "settings": "Settings",
+                "password": "Password",
+                "sessions": "Sessions",
+                "tracker": "User tracker",
+                "metrics": "Metrics",
+                "health": "Health",
+                "logs": "Logs",
+                "audits": "Audits",
+                "login": "Authenticate",
+                "logout": "Log out",
+                "apidocs": "API",
+                "register": "Register"
+            },
+            "admin": "Administration",
+            "language": "Language"
+        },
+        "form": {
+            "yes": "Yes",
+            "no": "No",
+            "default": "Default ({{unit}})",
+            "hardlow": "Hard Low ({{unit}})",
+            "softlow": "Soft Low ({{unit}})",
+            "softhigh": "Soft High ({{unit}})",
+            "hardhigh": "Hard High ({{unit}})",
+            "nolimit": "No Limit",
+            "username": "Login",
+            "username.placeholder": "Your login",
+            "newpassword": "New password",
+            "newpassword.placeholder": "New password",
+            "confirmpassword": "New password confirmation",
+            "confirmpassword.placeholder": "Confirm the new password",
+            "email": "E-mail",
+            "email.placeholder": "Your e-mail"
+        },
+        "formoption": {
+            "mostSensitive": "Most Sensitive",
+            "moreSensitive": "More Sensitive",
+            "medium": "Medium",
+            "lessSensitive": "Less Sensitive",
+            "leastSensitive": "Least Sensitive"
+        },
+        "messages": {
+            "info": {
+                "authenticated": "If you want to <a href=\"#/login\">authenticate</a>, you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\").",
+                "register": "You don't have an account yet? <a href=\"#/register\">Register a new account</a>"
+            },
+            "error": {
+                "dontmatch" : "The password and its confirmation do not match!"
+            },
+            "validate": {
+                "newpassword": {
+                    "required": "Your password is required.",
+                    "minlength": "Your password is required to be at least 5 characters",
+                    "maxlength": "Your password cannot be longer than 50 characters",
+                    "strength": "Password strength:"
+                },
+                "confirmpassword": {
+                    "required": "Your confirmation password is required.",
+                    "minlength": "Your confirmation password is required to be at least 5 characters",
+                    "maxlength": "Your confirmation password cannot be longer than 50 characters"
+                },
+                "email": {
+                    "required": "Your e-mail is required.",
+                    "invalid": "Your e-mail is invalid.",
+                    "minlength": "Your e-mail is required to be at least 5 characters",
+                    "maxlength": "Your e-mail cannot be longer than 50 characters"
+                }
+            }
+        }
+    },
+    "main": {
+        "adminTools" : "Admin Tools",
+        "MMLtab" : "Master Medication List (UK)",
+        "CGCAtab" : "Care Group / Care Area (UK)",
+        "DLtab" : "Drug Library (UK)"
+     },
+     "sessions": {
+        "title": "Active sessions for [<b>{{username}}</b>]",
+        "table": {
+            "ipaddress": "IP address",
+            "useragent": "User Agent",
+            "date": "Date",
+            "button": "Invalidate"
+        },
+        "messages": {
+            "success": "<strong>Session invalidated!</strong>",
+            "error": "<strong>An error has occurred!</strong> The session could not be invalidated."
+        }
+    },
+    "tracker": {
+        "title": "Real-time user activities",
+        "table": {
+            "userlogin": "User",
+            "ipaddress": "IP Address",
+            "userAgent": "User agent",
+            "page": "Current page",
+            "time": "Time"
+        }
+    },
+    "metrics": {
+        "title": "Application Metrics",
+        "refresh.button": "Refresh",
+        "updating": "Updating...",
+        "jvm": {
+            "title": "JVM Metrics",
+            "memory": {
+                "title": "Memory",
+                "total": "Total Memory",
+                "heap": "Heap Memory",
+                "nonheap": "Non-Heap Memory"
+            },
+            "threads": {
+                "title": "Threads",
+                "all": "All",
+                "runnable": "Runnable",
+                "timedwaiting": "Timed waiting",
+                "waiting": "Waiting",
+                "blocked": "Blocked",
+                "dump": {
+                    "title": "Threads dump",
+                    "id": "Id: ",
+                    "blockedtime": "Blocked Time",
+                    "blockedcount": "Blocked Count",
+                    "waitedtime": "Waited Time",
+                    "waitedcount": "Waited Count",
+                    "lockname": "Lock name",
+                    "stacktrace": "Stacktrace",
+                    "show": "Show",
+                    "hide": "Hide"
+                }
+            },
+            "gc": {
+                "title": "Garbage collections",
+                "marksweepcount": "Mark Sweep count",
+                "marksweeptime": "Mark Sweep time",
+                "scavengecount": "Scavenge count",
+                "scavengetime": "Scavenge time"
+            },
+            "http": {
+                "title": "HTTP requests (events per second)",
+                "active": "Active requests:",
+                "total": "Total requests:",
+                "table": {
+                    "code": "Code",
+                    "count": "Count",
+                    "mean": "Mean",
+                    "average": "Average"
+                },
+                "code": {
+                    "ok": "Ok",
+                    "notfound": "Not found",
+                    "servererror": "Server Error"
+                }
+            }
+        },
+        "servicesstats": {
+            "title": "Services statistics (time in millisecond)",
+            "table": {
+                "name": "Service name",
+                "count": "Count",
+                "mean": "Mean",
+                "min": "Min",
+                "max": "Max",
+                "p50": "p50",
+                "p75": "p75",
+                "p95": "p95",
+                "p99": "p99"
+            }
+        },
+        "ehcache": {
+            "title": "Ehcache statistics",
+            "cachename": "Cache name",
+            "objects": "Objects",
+            "hits": "Hits",
+            "misses": "Misses",
+            "evictioncount": "Eviction count",
+            "mean": "Mean get time (ms)"
+        }
+    },
+    "health": {
+        "title": "Health checks",
+        "refresh.button": "Refresh",
+        "stacktrace": "Stacktrace",
+        "indicator": {
+            "db": "Database",
+            "mail": "Email",
+            "mongo": "Mongo DB"
+        },
+        "table": {
+            "service": "Service name",
+            "status": "Status"
+        },
+        "status": {
+            "UP": "UP",
+            "DOWN": "DOWN"
+        }
+    },
+    "logs": {
+        "title": "Logs",
+        "nbloggers": "There are {{ total }} loggers.",
+        "filter": "Filter",
+        "table": {
+            "name": "Name",
+            "level": "Level"
+        }
+    },
+    "audits": {
+        "title": "Audits",
+        "filter": {
+            "title": "Filter per date",
+            "from": "from",
+            "to": "to",
+            "button": {
+                "weeks": "Weeks",
+                "today": "today",
+                "clear": "clear",
+                "close": "close"
+            }
+        },
+        "table": {
+            "header": {
+                "principal": "User",
+                "date": "Date",
+                "status": "State",
+                "data": "Extra data"
+            },
+            "data": {
+                "remoteAddress": "Remote Address:"
+            }
+        }
+
+    },
+    "errors": {
+        "title": "Error page!",
+        "login": "Please log in to access the application.",
+        "403": "You are not authorized to access the page.",
+        "other" : "An error occurred, please try again or contact your system administrator."
+    },
+    "footer": "This is your footer",
+    "languageMsg": "Welcome to the language message"
+}

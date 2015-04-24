@@ -1,0 +1,462 @@
+<div controller="DeviceFormController">
+    <div relative-height-cgca>
+    <ng-form name="deviceForm{{deviceType}}" ng-if="device">
+        <fieldset ng-disabled="!enabled  || shared.activeItemModeSaved" >
+            <div class="row content-pane">
+                <div class="container col-md-12">
+                    (*) Required Fields
+                </div>
+                <div class="container col-md-12">
+                    <h4 translate="careItem.subtab.patientSettings" class="dark-blue">Patient Settings</h4>
+                </div>
+                <div class="form-subsection">
+                    <div class="container col-md-12">
+                        <div class="form-group">
+                             <div class="inline" >
+                               <label translate="careItem.req2ndWtBsaInp">Double Confirmation of Weight/BSA</label><span>*</span>
+                            </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="req2ndWtBsaInp" value="Y" ng-model="device.req2ndWtBsaInp" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="req2ndWtBsaInp" value="N" ng-model="device.req2ndWtBsaInp">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-12">
+                        <h4 translate="careItem.subsection.weightLimits" class="form-subsection-header">Weight Limits</h4>
+                        <limitfields
+                            contains-hard-high
+                            contains-soft-high
+                            contains-soft-low
+                            contains-hard-low
+                            abs-bound-hard-high="600"
+                            abs-bound-hard-low=".02"
+                            precision=".01"
+                            unit-of-measure="kg"
+                            limits-model="device.wt"
+                        ></limitfields>
+                    </div>
+                    <div class="container col-md-12">
+                        <h4 translate="careItem.subsection.bsaLimits" class="form-subsection-header">BSA Limits</h4>
+                        <limitfields
+                            contains-hard-high
+                            contains-soft-high
+                            contains-soft-low
+                            contains-hard-low
+                            abs-bound-hard-high="6"
+                            abs-bound-hard-low=".005"
+                            precision=".01"
+                            unit-of-measure="m^2"
+                            limits-model="device.bsa"
+                        ></limitfields>
+                    </div>
+                    <div class="container col-md-6">
+                        <h4 translate="careItem.subsection.vtbiLimits" class="form-subsection-header">VTBI Limits</h4>
+                        <limitfields
+                            contains-hard-high
+                            contains-soft-high
+                            abs-bound-hard-high="5000"
+                            abs-bound-hard-low=".01"
+                            precision=".01"
+                            unit-of-measure="mL"
+                            limits-model="device.vtbi"
+                        ></limitfields>
+                    </div>
+                    <div class="container col-md-6">
+                        <h4 translate="careItem.subsection.rateLimits" class="form-subsection-header">Rate Limits</h4>
+                        <limitfields
+                            contains-hard-high
+                            contains-soft-high
+                            abs-bound-hard-high="1200"
+                            abs-bound-hard-low=".01"
+                            precision=".01"
+                            unit-of-measure="mL/hr"
+                            limits-model="device.rate"
+                        ></limitfields>
+                    </div>
+                </div>
+            </div>
+            <div class="row content-pane">
+                <div class="container col-md-12">
+                    <h4 translate="careItem.subtab.infusionAlarmSettings">Infusion Alarm Settings</h4>
+                </div>
+                <div class="form-subsection">
+                    <div class="col-md-12">
+                        <h4 translate="careItem.subsection.occlusions" class="form-subsection-header">Occlusions</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="inline" >
+                                    <label for="sel1" translate="careItem.occlSensitivity" name="occlSensitivity">Default Sensitivity (microliters)</label><span>*<span>
+                                </div>
+                                <select class="form-control scale-input force-border-radius" id="sel1" name="occlSensitivity" ng-model="device.occlSensitivity" ng-options="option.id as option.name | translate for option in options.occlSensitivity" required></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             <div class="inline" >
+                               <label translate="careItem.allowDosChg">Adjustable by Clinician</label><span>*</span>
+                            </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowDosChg" value="Y" ng-model="device.allowDosChg" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowDosChg" value="N" ng-model="device.allowDosChg">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="inline" >
+                                <label translate="careItem.occlRestart">Occlusion Auto-restarts </label> <span> * </span>
+                            </div>
+                            <input type="number" class="form-control scale-input" name="careItem.occlRestart" ng-model="device.occlRestart" required integer min='0' max='6'>
+                        </div>
+                        <div class="form-group">
+                            <div class="inline">
+                                <label translate="careItem.allowOcclRstartChg">Adjustable by Clinician</label><span>*</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="allowOcclRstartChg" value="Y" ng-model="device.allowOcclRstartChg" required>
+                                        {{ "global.form.yes" | translate }}
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="allowOcclRstartChg" value="N" ng-model="device.allowOcclRstartChg">
+                                        {{ "global.form.no" | translate }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h4 translate="careItem.subsection.kvoValue" class="form-subsection-header">KVO Value</h4>
+                            <div class="inline">
+                                <label for="sel1" translate="careItem.kvoValue">Default KVO Rate</label><span>*</span>
+                            </div>
+                            <div ng-if="device.deviceType == 'LVP'">
+                                <div class="input-group">
+                                    <input type="number" class="form-control scale-input no-spinner force-border-radius" name="kvoValue" value="" ng-model="device.kvoValue" required min=".1" max="30">
+                                    <span class="form-value-hint">0.1 - 30 mL/hr</span>
+                                </div>
+                            </div>
+                            <div ng-if="device.deviceType == 'Syringe'">
+                                <div class="input-group">
+                                    <input type="number" class="form-control scale-input no-spinner force-border-radius" name="kvoValue" value="" ng-model="device.kvoValue" required dk-min=".1" dk-max="3">
+                                    <span class="form-value-hint">0.1 - 3 mL/hr</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="inline">
+                                <label translate="careItem.allowKvoChange">Adjustable by Clinician</label><span>*</span>
+                            </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowKvoChange" value="Y" ng-model="device.allowKvoChange" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowKvoChange" value="N" ng-model="device.allowKvoChange">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="device.deviceType == 'LVP'" class="col-md-6">
+                        <h4 translate="careItem.subsection.airIfuLim" class="form-subsection-header">Air in Line Limit </h4>
+                        <div class="form-group">
+                            <div class="inline">
+                                <label for="sel2" translate="careItem.airIfuLim">Default Sensitivity</label><span>*</span>
+                            </div>
+                            <select class="form-control scale-input"
+                                id="sel2"
+                                ng-model="device.airIfuLim"
+                                ng-options="option.id as option.id for option in options.airIfuLim"
+                                required>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="inline">
+                                <label translate="careItem.allowAirLimChg">Adjustable by Clinician</label><span>*</span>
+                            </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowAirLimChg" value="Y" ng-model="device.allowAirLimChg" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowAirLimChg" value="N" ng-model="device.allowAirLimChg">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="device.deviceType === 'Syringe'" class="row content-pane">
+                <div class="container col-md-12">
+                    <h4 translate="careItem.subtab.syringeSpecificSettings">Syringe Specific Settings</h4>
+                </div>
+                <div class="form-subsection">
+                    <div class="container col-md-6">
+                        <div class="form-group">
+                            <div class="inline">
+                                <label translate="careItem.allowSyrgNotInList">Allow Syringe Not in Facility List</label><span>*</span>
+                            </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowSyrgNotInList" value="Y" ng-model="device.allowSyrgNotInList" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowSyrgNotInList" value="N" ng-model="device.allowSyrgNotInList">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-6">
+                        <div class="form-group">
+                             <div class="inline">
+                                <label  translate="careItem.allowFlush">Enable Flush</label><span>*</span>
+                             </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowFlush" value="Y" ng-model="device.allowFlush" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowFlush" value="N" ng-model="device.allowFlush">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-6">
+                        <div class="form-group">
+                             <div class="inline">
+                                <label  translate="careItem.allowPrimeInt">Prime Enabled for Intermittent Infusions</label><span>*</span>
+                             </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowPrimeInt" value="Y" ng-model="device.allowPrimeInt" required>{{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowPrimeInt" value="N" ng-model="device.allowPrimeInt">{{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-6">
+                        <div class="form-group">
+                             <div class="inline">
+                                <label  translate="careItem.allowPrimePc">Prime Enabled for Continuous Infusions</label><span>*</span>
+                             </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowPrimePc" value="Y" ng-model="device.allowPrimePc">
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="allowPrimePc" value="N" ng-model="device.allowPrimePc">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row content-pane">
+                <div class="container col-md-12">
+                    <h4 translate="careItem.subtab.pumpPrompts">Pump Prompts</h4>
+                </div>
+                <div class="form-subsection">
+                    <div class="container col-md-6">
+                        <div class="form-group">
+                            <div class="inline">
+                                <label translate="careItem.reqOprIdent">Clinician ID Requested</label><span>*</span>
+                            </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="" value="Y" ng-model="device.reqOprIdent" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="" value="N" ng-model="device.reqOprIdent">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-6">
+                        <div class="form-group">
+                             <div class="inline">
+                                <label  translate="careItem.promptPatientIdent">Patient ID Requested</label><span>*</span>
+                             </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="promptPatientIdent" value="Y" ng-model="device.promptPatientIdent" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="promptPatientIdent" value="N" ng-model="device.promptPatientIdent">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-6">
+                        <div class="form-group">
+                             <div class="inline">
+                                <label  translate="careItem.secondReviewReq">Second Clinician Review Requested</label><span>*</span>
+                             </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="reqCliId2ndRvw" value="Y" ng-model="device.secondReviewReq" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="reqCliId2ndRvw" value="N" ng-model="device.secondReviewReq">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-6">
+                        <div class="form-group">
+                             <div class="inline">
+                                <label  translate="careItem.promptNoncomplaintMed">Basic Mode Medication Name Requested</label><span>*</span>
+                             </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="promptNoncomplaintMed" value="Y" ng-model="device.promptNoncompliantMed" >
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="promptNoncomplaintMed" value="N" ng-model="device.promptNoncompliantMed" >
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-12">
+                        <div class="form-group">
+                            <h4 translate="careItem.subtab.callbackAlertReasons" class="form-subsection-header">Callback Alert Reasons</h4>
+                            <div class="form-group">
+                                <label translate="careItem.listOrderDisplayedOnPump">List Order Displayed on Pump</label>
+                                <div class="InputAddOn callback-reason">
+                                    <label class="InputAddOn-label">1</label>
+                                    <input clearable class="form-control input-sm InputAddOn-field first-child" type="text" name="name" value="" ng-model="alerts[0].message" minlength="0" maxlength="40">
+                                </div>
+                                <div class="InputAddOn callback-reason">
+                                    <label class="InputAddOn-label">2</label>
+                                    <input clearable class="form-control input-sm InputAddOn-field first-child" type="text" name="name" value="" ng-model="alerts[1].message" minlength="0" maxlength="40">
+                                </div>
+                                <div class="InputAddOn callback-reason">
+                                    <label class="InputAddOn-label">3</label>
+                                    <input clearable class="form-control input-sm InputAddOn-field first-child" type="text" name="name" value="" ng-model="alerts[2].message" minlength="0" maxlength="40">
+                                </div>
+                                <div class="InputAddOn callback-reason">
+                                    <label class="InputAddOn-label">4</label>
+                                    <input clearable class="form-control input-sm InputAddOn-field first-child" type="text" name="name" value="" ng-model="alerts[3].message" minlength="0" maxlength="40">
+                                </div>
+                                <div class="InputAddOn callback-reason">
+                                    <label class="InputAddOn-label">5</label>
+                                    <input clearable class="form-control input-sm InputAddOn-field first-child" type="text" name="name" value="" ng-model="alerts[4].message" minlength="0" maxlength="40">
+                                </div>
+                                <div class="InputAddOn callback-reason">
+                                    <label class="InputAddOn-label">6</label>
+                                    <input clearable class="form-control input-sm InputAddOn-field first-child" type="text" name="name" value="" ng-model="alerts[5].message" minlength="0" maxlength="40">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row content-pane">
+                <div class="container col-md-12">
+                    <h4 translate="careItem.subtab.hardwareSettings">Hardware Settings</h4>
+                </div>
+                <div class="form-subsection">
+                    <div class="container col-md-6">
+                        <h4 translate="careItem.subsection.screenBrightness" class="form-subsection-header">Screen Brightness </h4>
+                        <div class="form-group">
+                             <div class="inline">
+                                <label translate="careItem.scrBrightDflt">Default Brightness</label><span>*</span>
+                             </div>
+                            <input type="number" class="form-control scale-input" name="scrBrightDflt" ng-model="device.scrBrightDflt" required>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label translate="careItem.autoScrBright">Auto Adjust</label><span>*</span>
+                            </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="autoScrBright" value="Y" ng-model="device.autoScrBright" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="autoScrBright" value="N" ng-model="device.autoScrBright">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-6">
+                        <h4 translate="careItem.subsection.speakerVolume" class="form-subsection-header">Speaker Volume</h4>
+                        <div class="form-group">
+                            <div class="inline">
+                                <label translate="careItem.speakerVolDefault">Default Volume</label><span>*</span>
+                            </div>
+                            <input type="number" class="form-control scale-input" name="speakerVolDefault" ng-model="device.speakerVolDefault" required dk-min='0' dk-max='9'>
+                        </div>
+                        <div class="form-group">
+                            <div class="inline">
+                                 <label translate="careItem.allowSpkrVolChg">Adjustable by Clinician</label><span>*</span>
+                             </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="" value="Y" ng-model="device.allowSpkrVolChg" required>
+                                    {{ "global.form.yes" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="" value="N" ng-model="device.allowSpkrVolChg">
+                                    {{ "global.form.no" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-md-6">
+                        <div class="form-group">
+                            <div class="inline">
+                                <label translate="careItem.autoLockUI" class="form-subsection-header">Screen Auto - Lock</label><span>*</span>
+                            </div>
+                            <div class="input-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="autoLockUI" value="AutoLock" ng-model="device.autoLockUI" required>
+                                    {{ "careItem.options.autoLock" | translate }}
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="autoLockUI" value="NoAutoLock" ng-model="device.autoLockUI">
+                                    {{ "careItem.options.noLock" | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </ng-form>
+    </div>
+</div>

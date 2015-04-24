@@ -1,0 +1,50 @@
+{
+  "name": "dk-modal",
+  "version": "1.0.0",
+  "description": "one controller per state, to use states we use ui-router",
+  "main": "app.js",
+  "scripts": {
+    "test": "http://psinh.ddns.net:9011/pub/apps/angular/dk-modal/app.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nhhockeyplayer/TEST"
+  },
+  "keywords": [
+    "modal",
+    "scopeprovider",
+    "one",
+    "controller",
+    "per",
+    "state"
+  ],
+  "author": "nhhockeyplayer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nhhockeyplayer/TEST/issues"
+  },
+  "homepage": "https://github.com/nhhockeyplayer/TEST",
+  "devDependencies": {
+    "angular-ui-router": "^0.2.13",
+    "bootstrap": "^3.3.4",
+    "bower": "^1.4.0",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "gulp": "^3.8.11",
+    "jquery": "^2.1.3",
+    "less": "^2.4.0",
+    "sass": "^0.5.0",
+    "ui-router": "0.0.1"
+  },
+  "dependencies": {
+    "angular-ui-router": "^0.2.13",
+    "bootstrap": "^3.3.4",
+    "bower": "^1.4.0",
+    "grunt": "^0.4.5",
+    "gulp": "^3.8.11",
+    "grunt-cli": "^0.1.13",
+    "jquery": "^2.1.3",
+    "less": "^2.4.0",
+    "sass": "^0.5.0"
+  }
+}

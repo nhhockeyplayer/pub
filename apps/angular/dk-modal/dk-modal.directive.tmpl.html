@@ -1,0 +1,31 @@
+<div ng-class="dk-shadow-3d">
+    <div ng-class="dk-header-bg">
+        <h3 ng-class="modal-title">Confirm</h3>
+    </div>
+    <div ng-class="dk-modal-body">
+        <ul>
+            <li>
+                <img bn-lazy-src="{{ $scope.icon }}" width="30" height="30" />
+                <label>{{$scope.message}}</label>
+            </li>
+        </ul>
+    </div>
+    <div class="dk-modal-footer">
+        <a class="btn btn-default btn-sm modal-link" title="" href="/User/Create" data-original-title="Create New User" data-toggle="modal" data-target="#myModal" data-placement="left">Create <i class="fa fa-user fa-lg"></i>
+          </a>
+    </div>
+</div>
+<!--
+        <div class="dk-modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+
+        <p class="pull-right">
+          <a class="btn btn-default btn-sm modal-link" title="" href="/User/Create"
+             data-original-title="Create New User" data-toggle="modal"
+             data-target="#myModal"
+             data-placement="left">Create <i class="fa fa-user fa-lg"></i>
+          </a>
+        </p>
+-->

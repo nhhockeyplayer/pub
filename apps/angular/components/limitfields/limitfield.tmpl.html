@@ -1,0 +1,11 @@
+<div class="limitfield">
+    <div class="InputAddOn" ng-class="{'emptyInput': numberfield === ''}">
+        <input type="text" class="form-control InputAddOn-field input-sm" ng-class="{'first-child': showUOM, 'only-child': !showUOM, 'type-number': (boxType === 'number'),'type-text': (boxType === 'text')}" placeholder="" value="" ng-model="numberfield" disable-valid-styling="true" disable-invalid-styling="true">
+        <span class="InputAddOn-item" ng:class="{true:'last-child', false:''}[showUOM]" ng-show="showUOM">{{unitOfMeasure}}</span>
+    </div>
+    <span class="error-message-field"></span>
+    <div class="checkbox-inline">
+        </span><input type="checkbox" name="" value="" ng-model="checkbox" disable-valid-styling="true" disable-invalid-styling="true">
+        <label>No Limit</label>
+    </div>
+</div>

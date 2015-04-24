@@ -1,0 +1,127 @@
+<form name="customMedFrm" novalidate>
+    <div class="row">
+        <div class="col-xs-11">
+            <h3 class="modal-title" translate="mml.formulary.createCustomMedication">Create Custom Medication</h3>
+        </div>
+        <div class="col-xs-1">
+            <button
+                id="mml-close-custom-medication-modal"
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                ng-click="CustMed.closeCustomMedModal(customMedFrm)">
+                <span>&times;</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="form-group"
+                 ng-class="CustMed.toValidate(customMedFrm.genericName)" >
+                <label
+                    for="customMedGenericName"
+                    translate="mml.formulary.genericName">Generic Name
+                    <span>*</span>
+                </label>
+                <input
+                    class="form-control"
+                    id="mml-custom-medication-form-modal-generic-name"
+                    name="genericName"
+                    ng-model-options="CustMed.customMedOpts"
+                    ng-model="CustMed.customMed.genericName"
+                    placeholder="{{'mml.formulary.required' | translate}}"
+                    required
+                    type="text">
+            </div>
+            <div class="form-group"
+                 ng-class="CustMed.toValidate(customMedFrm.pumpDisplayName)" >
+                <label
+                    for="customMedPumpDisplayName"
+                    translate="mml.formulary.nameOnPump">Name on Pump
+                    <span>*</span>
+                </label>
+                <input
+                    class="form-control"
+                    id="mml-custom-medication-form-modal-pump-display-name"
+                    name="pumpDisplayName"
+                    ng-model-options="CustMed.customMedOpts"
+                    ng-model="CustMed.customMed.pumpDisplayName"
+                    placeholder="{{'mml.formulary.required' | translate}}"
+                    required
+                    type="text">
+            </div>
+            <div class="form-group">
+                <label
+                    for="customMedAltName1"
+                    translate="mml.formulary.altName1">Alt. Name 1:
+                </label>
+                <input
+                    class="form-control"
+                    id="mml-custom-medication-form-modal-alt-name-1"
+                    name="altName1"
+                    ng-model="CustMed.customMed.altName1"
+                    type="text">
+            </div>
+            <div class="form-group">
+                <label
+                    for="customMedAltName2"
+                    translate="mml.formulary.altName2">Alt. Name 2:
+                </label>
+                <input
+                    class="form-control"
+                    id="mml-custom-medication-form-modal-alt-name-2"
+                    name="altName2"
+                    ng-model="CustMed.customMed.altName2"
+                    type="text">
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="form-group">
+                <label
+                    for="customMedHighAlert"
+                    translate="mml.formulary.highAlert">High Alert</label>
+                <br/>
+                <label class="radio-inline">
+                    <input
+                        id="mml-custom-medication-form-high-alert-yes"
+                        name="customMedHighAlert"
+                        ng-model="CustMed.customMed.highAlert"
+                        type="radio"
+                        value="Y">
+                        {{ "mml.formulary.yes" | translate | uppercase }}
+                </label>
+                <label class="radio-inline">
+                    <input
+                        id="mml-custom-medication-form-high-alert-no"
+                        name="customMedHighAlert"
+                        ng-model="CustMed.customMed.highAlert"
+                        type="radio"
+                        value="N">
+                        {{ "mml.formulary.no" | translate | uppercase }}
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-7">
+            <button
+                class="btn submit"
+                id="mml-custom-medication-form-save"
+                ng-click="CustMed.saveCustomMed()"
+                ng-disabled="customMedFrm.$invalid"
+                translate="mml.formulary.saveMedication">
+                Save Medication
+            </button>
+            <button
+                class="btn btn-link"
+                id="mml-custom-medication-form-close"
+                ng-click="CustMed.closeCustomMedModal(customMedFrm)"
+                translate="mml.formulary.cancel">
+                Cancel
+            </button>
+        </div>
+    </div>
+</form>
+</div>

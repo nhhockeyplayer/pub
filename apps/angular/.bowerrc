@@ -1,0 +1,4 @@
+{ 
+	"registry": "http://deploy.wings.dekaresearch.com:7070",
+	"directory": "app/libs" 
+}

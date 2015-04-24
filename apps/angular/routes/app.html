@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="App">
+
+  <head>
+    <link data-require="bootstrap@3.3.1" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+	<link href="http://psinh.ddns.net:9011/pub/apps/angular/dk-modal/app.css" rel="stylesheet" />
+
+    <script data-require="angular.js@1.2.16" data-semver="1.2.16" src="https://code.angularjs.org/1.2.16/angular.js"></script>
+    <script data-require="angular-ui-bootstrap@0.12.0" data-semver="0.12.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+
+	<script type="text/javascript" src="http://psinh.ddns.net:9011/pub/apps/angular/dk-modal/app.js"></script>
+
+	<!-- http://plnkr.co/edit/YklthDZcknmvMjU5A6pe?p=preview -->
+	<!-- http://stackoverflow.com/questions/17151940/angularjs-custom-confirm-box -->
+
+  </head>
+
+  <body ng-controller="AppController">
+    <input type="button" value="Delete" confirm="'Are you shour you want to delete me?'" on-confirm="delete()" />
+
+
+  </body>
+
+</html>

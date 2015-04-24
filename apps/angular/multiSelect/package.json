@@ -1,0 +1,45 @@
+{
+  "name": "multiSelect",
+  "version": "1.0.0",
+  "description": "One controller per state, sample tab & state context",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "^1.3.15",
+    "angular-ui-router": "^0.2.13",
+    "bootstrap": "^3.3.4",
+    "bower": "^1.4.0",
+    "del": "^1.1.1",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-uglify": "^1.1.0",
+    "jquery": "^2.1.3",
+    "underscore": "^1.8.2"
+  },
+  "main": {
+    "test": "http://localhost:3030/pub/apps/angular/multiSelect/app.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nhhockeyplayer/TEST"
+  },
+  "keywords": [
+    "tab",
+    "scopeprovider",
+    "ui-router",
+    "one",
+    "controller",
+    "per",
+    "state"
+  ],
+  "author": "nhhockeyplayer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nhhockeyplayer/TEST/issues"
+  },
+  "homepage": "https://github.com/nhhockeyplayer/TEST"
+}

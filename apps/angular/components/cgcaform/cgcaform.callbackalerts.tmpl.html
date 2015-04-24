@@ -1,0 +1,15 @@
+<div class="form-group" ng-if="true">
+    <h4 translate="careItem.subtab.callbackAlertReasons" class="form-subsection-header">Callback Alert Reasons</h4>
+    <div class="form-group">
+        <label translate="careItem.listOrderDisplayedOnPump">List Order Displayed on Pump</label>
+        <div onClick="promote()">up</div>
+        <div onClick="demote()">down</div>
+        {{device.alerts}}
+        <div class="form-group" ng-repeat="alert in device.alerts" ng-class="{ 'has-error' : alertFieldForm.message.$invalid }">
+            <ng-form name="alertFieldForm">
+                <label class="InputAddOn-label">{device.alerts.indexOf(alert)+1}</label>
+                <input clearable class="form-control input-sm" type="text" name="name" value="" ng-model="alert.message" minlength="0" maxlength="40">
+            </ng-form>
+        </div>
+    </div>
+</div>

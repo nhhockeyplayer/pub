@@ -1,0 +1,120 @@
+<!--
+ * COPYRIGHT 2014 DEKA RESEARCH AND DEVELOPMENT CORPORATION
+ *
+ * Contains confidential and proprietary information which
+ * may not be copied, disclosed or used by others except as expressly
+ * authorized in writing by DEKA Research & Development Corporation.
+ *
+ * @file
+ * @critical Major Multi-Point
+ *
+ * MML tab content.
+ *
+-->
+
+<dalmgrmenu></dalmgrmenu>
+<div id="mml">
+    <div id="mml-header">
+        <alert
+            class="animate ng-cloak"
+            type="{{Mml.alert.type}}"
+            ng-repeat="alert in Mml.alerts | limitTo: Mml.alertQty"
+            close="Mml.closeAlert($index)">
+            <strong><span translate="mml.error">Error!</span></strong> {{Mml.alert.msg}}
+        </alert>
+        <toaster-container
+            toaster-options="{
+                'time-out': 3000,
+                'close-button':false,
+                'animation-class': 'toast-center'
+            }">
+        </toaster-container>
+        <div class="row">
+            <div class="col-xs-3 mml-header">
+                <button
+                    class="done btn mml-btn center-block"
+                    id="mml-add-medications-done-adding"
+                    ng-click="Mml.toggleAddMedicationPanel()"
+                    ng-hide="Mml.isCategoryViewChecked"
+                    type="button">
+                    <span ng-if="Mml.adding" translate="mml.doneAdding">Done Adding</span>
+                    <span ng-if="!Mml.adding" translate="mml.addMedications">Add Medications</span>
+                </button>
+            </div>
+            <div class="col-xs-3 main-table-filters">
+                <label class="categorized-view pagination-centered">
+                    <input
+                        id="mml-categorized-view-checkbox"
+                        ng-change="Mml.categorizedViewClicked()"
+                        ng-disabled="Mml.adding || Mml.assignCategoryMode.active"
+                        ng-model="Mml.isCategoryViewChecked"
+                        type="checkbox">
+                        <span ng-class="{'disable-text': Mml.adding || Mml.assignCategoryMode.active}">
+                        <span translate="mml.categorizedView">
+                            Categorized View
+                        </span>{{Mml.selectedCategory.name.length > 0 ?' - ':''}}{{Mml.selectedCategory.name}}
+                    </span>
+                </label>
+            </div>
+            <div class="col-xs-3 main-table-filters text-right">
+                <div ng-if="Mml.isCategoryViewChecked">
+                    <div ng-if="Mml.assignCategoryMode.active">
+                        <button
+                            class="btn btn-sm mml-btn"
+                            id="mml-save-assigned-medication-categories"
+                            ng-click="Mml.saveAssignedCategories()"
+                            translate="mml.save"
+                            type="button">
+                            Save
+                        </button>
+                        <button
+                            class="btn btn-sm btn-link"
+                            id="mml-cancel-assigned-medication-categories"
+                            ng-click="Mml.cancelAssignedCategories()"
+                            translate="mml.cancel"
+                            type="button">
+                            Cancel
+                        </button>
+                    </div>
+                    <div ng-if="!Mml.assignCategoryMode.active">
+                        <button
+                            class="btn mml-btn"
+                            id="mml-modify-medication-categories"
+                            ng-click="Mml.toggleAssignCategoryMode()"
+                            ng-disabled="Mml.selectedCategory.id <= 0"
+                            translate="mml.modify"
+                            type="button">
+                            Modify
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 main-table-filters">
+                <div class="inner-addon right-addon search">
+                    <i class="glyphicon glyphicon-search"></i>
+                    <input
+                        class="form-control input-sm"
+                        id="master-medication-list-search"
+                        ng-model="Mml.searchQuery.query"
+                        placeholder="{{Mml.selectedCategory.searchBarPlaceHolderText}}"
+                        type="text"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div ng-class="{'hidden-xs': !Mml.showSideBar()}"
+             class="col-xs-3 sidebar height-managed padded lower-panel tab-element">
+            <ng-include src="Mml.setTemplate()"></ng-include>
+        </div>
+
+        <div id="medications-table"
+             ng-class="Mml.showSideBar() ? 'col-xs-9' : 'col-xs-12'"
+             class="height-managed main-panel lower-panel">
+            <ng-include
+                ng-controller="MmlMedicationsTableController as MTbl"
+                src="'resources/components/mml/mmlMedicationsTable/mmlMedicationsTable.tmpl.html'">
+            </ng-include>
+        </div>
+    </div>
+</div>

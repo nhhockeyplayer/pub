@@ -1,0 +1,37 @@
+{
+  "name": "scopeprovider",
+  "version": "1.0.0",
+  "description": "One controller per state, sample tab & state context",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "angular-ui-router": "^0.2.13",
+    "bower": "^1.3.12",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "gulp": "^3.8.11",
+    "underscore": "^1.8.2"
+  },
+  "scripts": {
+    "test": "http://localhost:3030/pub/apps/angular/scopeprovider/app.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nhhockeyplayer/TEST"
+  },
+  "keywords": [
+    "tab",
+    "scopeprovider",
+    "ui-router",
+    "one",
+    "controller",
+    "per",
+    "state"
+  ],
+  "author": "nhhockeyplayer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nhhockeyplayer/TEST/issues"
+  },
+  "homepage": "https://github.com/nhhockeyplayer/TEST"
+}

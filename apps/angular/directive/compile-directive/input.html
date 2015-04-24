@@ -1,0 +1,41 @@
+Here's the source he ends up with in case anyone wants it:
+<!DOCTYPE html>
+<html lang='en' ng-app='APP'>
+<head>
+	<meta charset='UTF-8'>
+	<title>$compile</title>
+</head>
+<body>
+	<div ng-controller='theController'>
+	<btn val='10'></btn>
+	<input type='text' ng-model='val' />
+	<button ng-click='addVal(val)'>Add</button>
+	<div id='hodler'>
+
+	</div>
+	</div>
+
+	<script src='http://code.angularjs.org/1.2.2/angular.min.js'></script>
+	<script>
+	angular.module('APP', []).
+	controller('theController', ['$scope', '$compile', function( $scope, $compile ) {
+	$scope.addVal = function(v){
+	var btn = $compile('<btn val="{{val}}"></btn>')($scope)
+	angular.element(document.getElementById('hodler')).append(btn)
+	}
+	}]).
+	directive('btn',function() {
+	return {
+	restrict: 'E',
+	scope: {'val':'@'},
+	template: '<button>{{val}}</button>',
+	link: function(scope, element, attrs){
+	element.on('click', function() { alert(attrs.val) })
+	}
+	}
+	})
+
+	</script>
+
+</body>
+</html>

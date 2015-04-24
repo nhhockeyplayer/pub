@@ -1,0 +1,30 @@
+<div class='dk-shadow-3d'>
+
+    <div class="modal-header dk-modal-header-bg">
+        <!-- <span class='fa fa-info pull-left'></span> -->
+        <span class='dk-align-center' translate='information'>{{title}}</span>
+        <button type="button" class="button pull-right dk-align-center dk-header-close-button-color"
+            ng-click="cancel()" data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+
+    <div class="modal-body">
+        <table>
+        <tr>
+            <td>
+                <i class='fa fa-3x {{icon}} pull-left'></i>
+            </td>
+            <td align="right">
+                <label class='dk-align-center pull-right'>{{message}}</label>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+    <div class="modal-footer">
+        <button dk-auto-focus class="btn btn-default" ng-click="ok()">OK</button>
+        <span ng-if="type != 'alert' ">
+            <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </span>
+    </div>
+
+</div>

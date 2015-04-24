@@ -1,0 +1,75 @@
+<div ng-controller="MmlFormularyController as Frm" adjust-height>
+    <div class='sidebar-head'>
+        <div class="formulary-header">
+            <p class="text-center" translate="mml.formulary.standardFormularyMedications">
+                Standard Formulary Medications
+            </p>
+        </div>
+
+        <div class="inner-addon right-addon search">
+            <i class="glyphicon glyphicon-search"></i>
+            <input
+                class="form-control"
+                id="mml-standard-formulary-medication-search-input"
+                placeholder="{{'mml.formulary.searchStandardFormulary' | translate}}"
+                type="text" />
+        </div>
+        <div class="formulary-options">
+            <label class="categorized-view">
+                <input
+                    id="mml-toggle-categorized-view-select-all"
+                    ng-change="Frm.toggleCheckAll()"
+                    ng-model="Frm.selectAllFrms"
+                    type="checkbox" />
+                {{ "mml.formulary.selectAll" | translate}}
+            </label>
+
+            <span class="selected-count pull-right">
+                {{Frm.formulary.checklist.length - Frm.formulary.prevAdded.length}} of
+                {{Frm.formulary.medications.length - Frm.formulary.prevAdded.length}}
+            </span>
+        </div>
+    </div>
+
+    <div class="sidebar-body">
+        <img ng-if="Frm.isLoading(Frm.formulary.medications)" ng-src="resources/assets/img/loading.gif"/>
+        <ul>
+            <li ng-repeat="fm in Frm.formulary.medications | orderBy:'genericName' track by fm.drugCode"
+                ng-class="{'bg-info': Frm.highlightSelFrm(fm)}">
+                <label>
+                    <input type="checkbox"
+                           checklist-model="Frm.formulary.checklist"
+                           checklist-value="fm.drugCode"
+                           ng-disabled="fm.prevAdded">
+                    <span ng-class="{'disable-text': fm.prevAdded}"
+                          class="med-generic-name">{{::fm.genericName}}</span>
+                </label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sidebar-footer">
+        <div class="formulary-options">
+            <label>
+                <input
+                    id="mml-include-aliases-checkbox"
+                    ng-model="Frm.formulary.includeAliases"
+                    type="checkbox" >
+                    {{ "mml.formulary.includeAliases" | translate }}
+            </label>
+        </div>
+
+        <div class="buttons">
+            <button type="button"
+                    id="mml-add-selected-button"
+                    class="btn mml-btn formulary-footer-btn"
+                    ng-click="Frm.addSelected()"
+                    translate="mml.formulary.addSelected">Add Selected</button>
+            <button type="button"
+                    id="mml-open-custom-medication-modal"
+                    class="btn mml-btn formulary-footer-btn"
+                    ng-click="Frm.openCustomMedicationModal()"
+                    translate="mml.formulary.createCustomMedication">Create Custom Medication</button>
+        </div>
+    </div>
+</div>
